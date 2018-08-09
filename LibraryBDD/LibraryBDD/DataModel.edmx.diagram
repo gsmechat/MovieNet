@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="30207b0871c34ab3ab3471165674237c" Name="Diagram1" ZoomLevel="112" >
+        <EntityTypeShape EntityType="DataModel.Avi" Width="1.5" PointX="3" PointY="3" />
+        <EntityTypeShape EntityType="DataModel.Movy" Width="1.5" PointX="0.75" PointY="3.125" />
+        <EntityTypeShape EntityType="DataModel.User" Width="1.5" PointX="6.5" PointY="3.125" />
+        <AssociationConnector Association="DataModel.FK_AvisMovie" />
+        <AssociationConnector Association="DataModel.FK_UserAvis" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

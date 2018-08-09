@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DataModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="DataModelStoreContainer">
+    <EntitySet Name="Avis" EntityType="DataModel.Store.Avis" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Movies" EntityType="DataModel.Store.Movies" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Users" EntityType="DataModel.Store.Users" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK_AvisMovie" Association="DataModel.Store.FK_AvisMovie">
+      <End Role="Movy" EntitySet="Movies" />
+      <End Role="Avi" EntitySet="Avis" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserAvis" Association="DataModel.Store.FK_UserAvis">
+      <End Role="User" EntitySet="Users" />
+      <End Role="Avi" EntitySet="Avis" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Avis">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Note" Type="float" Nullable="false" />
+    <Property Name="Commentaire" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="User_Id" Type="int" Nullable="false" />
+    <Property Name="Movies_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Movies">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Title" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Genre" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Summary" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Login" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Password" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_AvisMovie">
+    <End Role="Movy" Type="DataModel.Store.Movies" Multiplicity="1" />
+    <End Role="Avi" Type="DataModel.Store.Avis" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Movy">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Avi">
+        <PropertyRef Name="Movies_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserAvis">
+    <End Role="User" Type="DataModel.Store.Users" Multiplicity="1" />
+    <End Role="Avi" Type="DataModel.Store.Avis" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Avi">
+        <PropertyRef Name="User_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

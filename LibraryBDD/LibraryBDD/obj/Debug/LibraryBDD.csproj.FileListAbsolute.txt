@@ -1,0 +1,12 @@
+C:\Users\student\Documents\Visual Studio 2017\Projects\LibraryBDD\LibraryBDD\bin\Debug\MyDatabase.mdf
+C:\Users\student\Documents\Visual Studio 2017\Projects\LibraryBDD\LibraryBDD\bin\Debug\MyDatabase_log.ldf
+C:\Users\student\Documents\Visual Studio 2017\Projects\LibraryBDD\LibraryBDD\bin\Debug\LibraryBDD.exe.config
+C:\Users\student\Documents\Visual Studio 2017\Projects\LibraryBDD\LibraryBDD\bin\Debug\LibraryBDD.exe
+C:\Users\student\Documents\Visual Studio 2017\Projects\LibraryBDD\LibraryBDD\bin\Debug\LibraryBDD.pdb
+C:\Users\student\Documents\Visual Studio 2017\Projects\LibraryBDD\LibraryBDD\bin\Debug\EntityFramework.dll
+C:\Users\student\Documents\Visual Studio 2017\Projects\LibraryBDD\LibraryBDD\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\student\Documents\Visual Studio 2017\Projects\LibraryBDD\LibraryBDD\bin\Debug\EntityFramework.xml
+C:\Users\student\Documents\Visual Studio 2017\Projects\LibraryBDD\LibraryBDD\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\student\Documents\Visual Studio 2017\Projects\LibraryBDD\LibraryBDD\obj\Debug\LibraryBDD.csprojResolveAssemblyReference.cache
+C:\Users\student\Documents\Visual Studio 2017\Projects\LibraryBDD\LibraryBDD\obj\Debug\LibraryBDD.exe
+C:\Users\student\Documents\Visual Studio 2017\Projects\LibraryBDD\LibraryBDD\obj\Debug\LibraryBDD.pdb

@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="DataModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+  <EntityContainer Name="DataModelContainer" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Avis" EntityType="DataModel.Avi" />
+    <EntitySet Name="Movies" EntityType="DataModel.Movy" />
+    <EntitySet Name="Users" EntityType="DataModel.User" />
+    <AssociationSet Name="FK_AvisMovie" Association="DataModel.FK_AvisMovie">
+      <End Role="Movy" EntitySet="Movies" />
+      <End Role="Avi" EntitySet="Avis" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserAvis" Association="DataModel.FK_UserAvis">
+      <End Role="User" EntitySet="Users" />
+      <End Role="Avi" EntitySet="Avis" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Avi">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Note" Type="Double" Nullable="false" />
+    <Property Name="Commentaire" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="User_Id" Type="Int32" Nullable="false" />
+    <Property Name="Movies_Id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Movy" Relationship="DataModel.FK_AvisMovie" FromRole="Avi" ToRole="Movy" />
+    <NavigationProperty Name="User" Relationship="DataModel.FK_UserAvis" FromRole="Avi" ToRole="User" />
+  </EntityType>
+  <EntityType Name="Movy">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Genre" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Summary" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Avis" Relationship="DataModel.FK_AvisMovie" FromRole="Movy" ToRole="Avi" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Login" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Avis" Relationship="DataModel.FK_UserAvis" FromRole="User" ToRole="Avi" />
+  </EntityType>
+  <Association Name="FK_AvisMovie">
+    <End Type="DataModel.Movy" Role="Movy" Multiplicity="1" />
+    <End Type="DataModel.Avi" Role="Avi" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Movy">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Avi">
+        <PropertyRef Name="Movies_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserAvis">
+    <End Type="DataModel.User" Role="User" Multiplicity="1" />
+    <End Type="DataModel.Avi" Role="Avi" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Avi">
+        <PropertyRef Name="User_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>
